@@ -1,0 +1,50 @@
+<% include partials/header.ejs %>
+<h1>Drink Details</h1>
+
+<form method="post">
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name:</label>
+    <input name="name" id="name" required value="<%= drink.name %>" />
+  </div>
+  <div class="form-group">
+    <label for="drinkType" class="col-sm-2 control-label">Type:</label>
+    <select name="drinkType" id="drinkType">
+      <% var types = ['Sangria', 'Vodka', 'Whiskey'];
+          var selected = '';
+
+        for (var i=0; i<types.length; i++) {
+          if (types[i] == drink.drinkType) {
+            selected = ' selected';
+          }
+          else {
+            selected = '';
+          }
+      %>
+          <option<%= selected %>><%= types[i]%></option>
+        <% } %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="size" class="col-sm-2 control-label">Size:</label>
+    <input name="size" id="size" required type="number" min="0" value="<%= drink.size %>" />
+    <select name="units" id="units">
+      <% var mlSelected = ' selected';
+        var ozSelected = '';
+
+        if (drink.units == 'oz') {
+          mlSelected = '';
+          ozSelected = ' selected';
+        }
+      %>
+      <option<%= mlSelected %>>ml</option>
+      <option<%= ozSelected %>>oz</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="alcoholPercentage" class="col-sm-2 control-label">Alcohol %:</label>
+    <input name="alcoholPercentage" id="alcoholPercentage" required type="number" min="0" value="<%= drink.alcoholPercentage %>" />
+  </div>
+  <button class="btn btn-success col-sm-offset-2">Save</button>
+</form>
+
+<% include partials/footer.ejs %>

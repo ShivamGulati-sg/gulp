@@ -1,0 +1,35 @@
+<% include partials/header.ejs %>
+
+<main class="container">
+  <h1>Login</h1>
+
+  <% if (messages.length > 0) { %>
+    <div class="alert alert-danger"><%= messages %></div>
+  <% }
+    else { %>
+      <div class="alert alert-success">Please enter your credentials</div>
+  <% } %>
+  <form method="post">
+    <div class="form-group">
+      <label for="username" class="col-sm-2 control-label">Username: *</label>
+      <input name="username" id="username" required />
+    </div>
+    <div class="form-group">
+      <label for="password" class="col-sm-2 control-label">Password: *</label>
+      <input name="password" id="password" type="password" required />
+    </div>
+
+    <button class="btn btn-success col-sm-offset-2">Login</button>
+    <a href="/facebook">
+      <img src="/images/facebook.png" alt="Log in with Facebook" />
+    </a>
+    <a href="/github">
+      <img src="/images/github.png" alt="Log in with GitHub" />
+    </a>
+    <hr />
+    Need access?  <a href="/register" title="Register">Register</a>
+  </form>
+
+</main>
+
+<% include partials/footer.ejs %>

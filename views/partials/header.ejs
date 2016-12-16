@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+  <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css" />
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+
+      <% if (!user) { %>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+      <% }
+        else {
+      %>
+        <li><a href="/drinks">Drinks</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+    <div class="navbar-text pull-right">
+          Welcome <%= user.username %>
+    </div>
+      <% } %>
+    </div>
+  </nav>
+
